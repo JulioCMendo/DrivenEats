@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">  
+
+  <script src="script.js" async></script>
+  <!-- https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup -->
+
+  <title>DrivenEats</title>
+
+</head>
+<body>
+  <div class="container flex-column">
+    <header class="header flex-row">
+      <div class="flex-column">
+        <h1>DrivenEats</h1>
+        <h2>Sua comida em 6 minutos</h2>
+      </div>
+    </header>
+
+    <section class="menu flex-column">
+      <h1 class="pd-21">Primeiro, seu prato</h1>
+      <div id="menu-1" class="scroll-box flex-row">
+
+        <div class="item flex-column" onclick="selectOne(this, 'menu-1')">
+          <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+          <img src="assets/images/yin_yang.png" alt="Frango Yin Yang" />
+          <h1 class="item-name">Frango Yin Yang</h1>
+          <h2 class="item-description">Um pouco de batata, um pouco de salada</h2>
+          <p class="item-price">R$14,90</p>
+        </div>
+
+        <div class="item flex-column" onclick="selectOne(this, 'menu-1')">
+          <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+          <img src="assets/images/yin_yang.png" alt="Frango Yin Yang" />
+          <h1 class="item-name">Frango Yin Yang</h1>
+          <h2 class="item-description">Um pouco de batata, um pouco de salada</h2>
+          <p class="item-price">R$14,90</p>
+        </div>
+
+        <div class="item flex-column" onclick="selectOne(this, 'menu-1')">
+          <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+          <img src="assets/images/yin_yang.png" alt="Frango Yin Yang" />
+          <h1 class="item-name">Frango Yin Yang</h1>
+          <h2 class="item-description">Um pouco de batata, um pouco de salada</h2>
+          <p class="item-price">R$14,90</p>
+        </div>
+
+        <div class="item flex-column" onclick="selectOne(this, 'menu-1')">
+          <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+          <img src="assets/images/yin_yang.png" alt="Frango Yin Yang" />
+          <h1 class="item-name">Frango Yin Yang</h1>
+          <h2 class="item-description">Um pouco de batata, um pouco de salada</h2>
+          <p class="item-price">R$14,90</p>
+        </div>
+
+        <div class="item flex-column" onclick="selectOne(this, 'menu-1')">
+          <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+          <img src="assets/images/yin_yang.png" alt="Frango Yin Yang" />
+          <h1 class="item-name">Frango Yin Yang</h1>
+          <h2 class="item-description">Um pouco de batata, um pouco de salada</h2>
+          <p class="item-price">R$14,90</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="menu flex-column">
+      
+      <h1 class="pd-21">Agora, sua bebida</h1>
+
+      <div id="menu-2" class="scroll-box flex-row">
+
+        <div class="item flex-column" onclick="selectOne(this, 'menu-2')">
+          <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+          <img src="assets/images/coquinha_gelada.png" alt="Coquinha gelada" />
+          <h1 class="item-name">Coquinha gelada</h1>
+          <h2 class="item-description">Lata 350ml</h2>
+          <p class="item-price">R$4,90</p>
+        </div>
+
+        <div class="item flex-column" onclick="selectOne(this, 'menu-2')">
+          <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+          <img src="assets/images/coquinha_gelada.png" alt="Coquinha gelada" />
+          <h1 class="item-name">Coquinha gelada</h1>
+          <h2 class="item-description">Lata 350ml</h2>
+          <p class="item-price">R$4,90</p>
+        </div>
+
+        <div class="item flex-column" onclick="selectOne(this, 'menu-2')">
+          <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+          <img src="assets/images/coquinha_gelada.png" alt="Coquinha gelada" />
+          <h1 class="item-name">Coquinha gelada</h1>
+          <h2 class="item-description">Lata 350ml</h2>
+          <p class="item-price">R$4,90</p>
+        </div>
+
+        <div class="item flex-column" onclick="selectOne(this, 'menu-2')">
+          <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+          <img src="assets/images/coquinha_gelada.png" alt="Coquinha gelada" />
+          <h1 class="item-name">Coquinha gelada</h1>
+          <h2 class="item-description">Lata 350ml</h2>
+          <p class="item-price">R$4,90</p>
+        </div>
+
+        <div class="item flex-column" onclick="selectOne(this, 'menu-2')">
+          <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+          <img src="assets/images/coquinha_gelada.png" alt="Coquinha gelada" />
+          <h1 class="item-name">Coquinha gelada</h1>
+          <h2 class="item-description">Lata 350ml</h2>
+          <p class="item-price">R$4,90</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="menu flex-column">
+      <h1 class="pd-21">Por fim, sua sobremesa</h1>
+      <div id="menu-3" class="scroll-box flex-row">
+
+        <div class="item flex-column" onclick="selectOne(this, 'menu-3')">
+          <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+          <img src="assets/images/pudim.png" alt="Pudim" />
+          <h1 class="item-name">Pudim</h1>
+          <h2 class="item-description">Apenas pudim</h2>
+          <p class="item-price">R$7,90</p>
+        </div>
+
+        <div class="item flex-column" onclick="selectOne(this, 'menu-3')">
+          <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+          <img src="assets/images/pudim.png" alt="Pudim" />
+          <h1 class="item-name">Pudim</h1>
+          <h2 class="item-description">Apenas pudim</h2>
+          <p class="item-price">R$7,90</p>
+        </div>
+
+        <div class="item flex-column" onclick="selectOne(this, 'menu-3')">
+          <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+          <img src="assets/images/pudim.png" alt="Pudim" />
+          <h1 class="item-name">Pudim</h1>
+          <h2 class="item-description">Apenas pudim</h2>
+          <p class="item-price">R$7,90</p>
+        </div>
+
+        <div class="item flex-column" onclick="selectOne(this, 'menu-3')">
+          <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+          <img src="assets/images/pudim.png" alt="Pudim" />
+          <h1 class="item-name">Pudim</h1>
+          <h2 class="item-description">Apenas pudim</h2>
+          <p class="item-price">R$7,90</p>
+        </div>
+
+        <div class="item flex-column" onclick="selectOne(this, 'menu-3')">
+          <ion-icon name="checkmark-circle" class="display-none"></ion-icon>
+          <img src="assets/images/pudim.png" alt="Pudim" />
+          <h1 class="item-name">Pudim</h1>
+          <h2 class="item-description">Apenas pudim</h2>
+          <p class="item-price">R$7,90</p>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="footer flex-row">
+      <div id="order-button" onclick="makeOrder()" class="disable-click rounded flex-row">
+        <p>Selecione os 3 itens para fechar o pedido</p>
+      </div>
+    </footer>
+
+  </div>  
+  <section class="confirm-order flex-column display-none">
+    <h1>Confirme seu pedido</h1>
+    <div class="flex-row between">
+      <p>Frango Yin Yang</p>
+      <p>14,90</p>
+    </div>
+    <div class="flex-row between">
+      <p>Coquinha gelada</p>
+      <p>4,90</p>
+    </div>
+    <div class="flex-row between">
+      <p>Pudim</p>
+      <p>7,90</p>
+    </div>
+    <div class="flex-row between bold">
+      <p>TOTAL</p>
+      <p>R$ 27,70</p>
+    </div>
+    <div onclick="processOrder('confirm')" class="flex-row clickable rounded">
+      <p>Tudo certo, pode pedir!</p>
+    </div>
+    <div onclick="processOrder('cancel')" class="flex-row clickable center bold">
+      <p>Cancelar</p>
+    </div>
+  </section>
+  <!-- Ionicons script -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
