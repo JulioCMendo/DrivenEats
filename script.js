@@ -35,21 +35,6 @@ function makeOrder(){
   }
 }
 
-function updateSelections(value){
-  if (value === "add") { 
-    selections++;
-  }
-  else if (value === "sub") {
-    selections--;
-  }
-  if (selections === 3){
-    enableButton("enable");
-  }
-  else if (selections < 3){
-    enableButton("disable");
-  }
-}
-
 function enableButton(action) {
   const orderButton = document.getElementById("order-button");
   if (action === "enable") { 
@@ -73,72 +58,117 @@ function enableButton(action) {
   }
 }
 
+function getTotal(){
+  const getOrder = document.querySelector(".new-order");
+  const displayTotal = document.getElementById("total");
+  const prices = getOrder.querySelectorAll(".item-price");
+  let total = 0;
+  for(let price of prices){
+    total += parseFloat(price.innerHTML.replace(/\$|R/g, "").replace(/,/g,'.'));
+  }
+  displayTotal.innerHTML ="<p>TOTAL</p>" + "<p>R$" + total.toFixed(2).replace(/\./g,',') + "</p>";
+}
+
+function updateSelections(value, itemName, itemPrice, menu){
+  const newMenu = "." + menu;
+
+  const newOrder = document.querySelector(".new-order");
+  const nameClone = itemName.cloneNode(true);
+  const priceClone = itemPrice.cloneNode(true);
+  priceClone.innerHTML = priceClone.innerHTML.replace(/\$|R/g, "");
+
+  let newDiv = document.createElement('div');
+  newDiv.classList.add("flex-row", "between", menu);
+  newDiv.appendChild(nameClone);
+  newDiv.appendChild(priceClone);
+
+  if (value === "add") { 
+    selections++;
+    newOrder.appendChild(newDiv);
+  }
+  else if (value === "sub") {
+    selections--;
+    newOrder.querySelector(newMenu).remove();
+  }
+
+  if (selections === 3){
+    enableButton("enable");
+    getTotal();
+  }
+  else if (selections < 3){
+    enableButton("disable");
+  }
+}
+
 function selectOne(selection, menu) {
   const menu1 = document.getElementById("menu-1");
   const menu2 = document.getElementById("menu-2");
   const menu3 = document.getElementById("menu-3");
 
-  if(menu === 'menu-1') {
+  const itemName = selection.querySelector(".item-name");
+  const itemPrice = selection.querySelector(".item-price");
+
+  if(menu === "menu-1") {
     for (const child of menu1.children) {
       const selected = child.classList.contains('selected');
       if (selected === true  && child === selection) {
         child.classList.remove('selected');
-        child.children[0].classList.add('display-none')
-        updateSelections('sub');
+        child.children[0].classList.add('display-none');
+        updateSelections('sub',itemName,itemPrice,"menu-1");
       }
       else if (selected === true && child !== selection) {
         child.classList.remove('selected');
-        child.children[0].classList.add('display-none')
-        updateSelections('sub');
+        child.children[0].classList.add('display-none');
+        updateSelections('sub',itemName,itemPrice,"menu-1");
       }
       else if (selected === false && child === selection) {
         child.classList.add('selected');
-        child.children[0].classList.remove('display-none')
-        updateSelections('add');
+        child.children[0].classList.remove('display-none');
+        updateSelections('add',itemName,itemPrice,"menu-1");
       }
     }
   }
 
-  else if(menu === 'menu-2') {
+  else if(menu === "menu-2") {
 
     for (const child of menu2.children) {
       const selected = child.classList.contains('selected');
       if (selected === true  && child === selection) {
         child.classList.remove('selected');
-        child.children[0].classList.add('display-none')
-        updateSelections('sub');
+        child.children[0].classList.add('display-none');
+        updateSelections('sub',itemName,itemPrice,"menu-2");
       }
       else if (selected === true && child !== selection) {
         child.classList.remove('selected');
-        child.children[0].classList.add('display-none')
-        updateSelections('sub')
+        child.children[0].classList.add('display-none');
+        updateSelections('sub',itemName,itemPrice,"menu-2");
       }
       else if (selected === false && child === selection) {
         child.classList.add('selected');
-        child.children[0].classList.remove('display-none')
-        updateSelections('add')
+        child.children[0].classList.remove('display-none');
+        updateSelections('add',itemName,itemPrice,"menu-2");
       }
     }
   }
 
-  else if(menu === 'menu-3') {
+  else if(menu === "menu-3") {
 
     for (const child of menu3.children) {
       const selected = child.classList.contains('selected');
       if (selected === true  && child === selection) {
         child.classList.remove('selected');
-        child.children[0].classList.add('display-none')
-        updateSelections('sub')
+        child.children[0].classList.add('display-none');
+        updateSelections('sub',itemName,itemPrice,"menu-3");
       }
       else if (selected === true && child !== selection) {
         child.classList.remove('selected');
-        child.children[0].classList.add('display-none')
-        updateSelections('sub')
+        child.children[0].classList.add('display-none');
+        updateSelections('sub',itemName,itemPrice,"menu-3");
       }
       else if (selected === false && child === selection) {
         child.classList.add('selected');
-        child.children[0].classList.remove('display-none')
-        updateSelections('add')
+        child.children[0].classList.remove('display-none');
+        updateSelections('add',itemName,itemPrice,"menu-3");
       }
     }
   }

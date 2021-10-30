@@ -43,7 +43,7 @@
           <img src="assets/images/yin_yang.png" alt="Frango Yin Yang" />
           <h1 class="item-name">Frango Yin Yang</h1>
           <h2 class="item-description">Um pouco de batata, um pouco de salada</h2>
-          <p class="item-price">R$14,90</p>
+          <p class="item-price">R$24,90</p>
         </div>
 
         <div class="item flex-column" onclick="selectOne(this, 'menu-1')">
@@ -178,21 +178,9 @@
   </div>  
   <section class="confirm-order flex-column display-none">
     <h1>Confirme seu pedido</h1>
-    <div class="flex-row between">
-      <p>Frango Yin Yang</p>
-      <p>14,90</p>
+    <div class="new-order flex-column">
     </div>
-    <div class="flex-row between">
-      <p>Coquinha gelada</p>
-      <p>4,90</p>
-    </div>
-    <div class="flex-row between">
-      <p>Pudim</p>
-      <p>7,90</p>
-    </div>
-    <div class="flex-row between bold">
-      <p>TOTAL</p>
-      <p>R$ 27,70</p>
+    <div id="total" class="flex-row between bold">
     </div>
     <div onclick="processOrder('confirm')" class="flex-row clickable rounded">
       <p>Tudo certo, pode pedir!</p>
