@@ -24,7 +24,7 @@ function processOrder(action){
     string += "\nEndereço: ";
     string += clientAddress;
     wpp += encodeURIComponent(string);
-    console.log(string);
+    // console.log(string);
     window.open(wpp);
   }
 
