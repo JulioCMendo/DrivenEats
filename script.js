@@ -41,6 +41,8 @@ function processOrder(action){
     if (body.classList.contains("disable-scroll")) {
       body.classList.remove("disable-scroll");
     }
+    const menu1 = document.querySelector(".menu-1");
+    setTimeout(scrollTo, 150, menu1);
   }
 }
 
@@ -93,6 +95,14 @@ function getTotal(){
   displayTotal.innerHTML ="<p>TOTAL</p>" + "<p>R$" + total.toFixed(2).replace(/\./g,',') + "</p>";
 }
 
+function scrollTo(element) {
+  window.scroll({
+    behavior: 'smooth',
+    left: 0,
+    top: element.offsetTop - 17
+  });
+}
+
 function updateSelections(value, itemName, itemPrice, menu){
   const newMenu = "." + menu;
 
@@ -137,18 +147,19 @@ function selectOne(selection, menu) {
       const selected = child.classList.contains('selected');
       if (selected === true  && child === selection) {
         child.classList.remove('selected');
-        child.children[0].classList.add('display-none');
+        child.querySelector("ion-icon").classList.add('display-none');
         updateSelections('sub',itemName,itemPrice,"menu-1");
       }
       else if (selected === true && child !== selection) {
         child.classList.remove('selected');
-        child.children[0].classList.add('display-none');
+        child.querySelector("ion-icon").classList.add('display-none');
         updateSelections('sub',itemName,itemPrice,"menu-1");
       }
       else if (selected === false && child === selection) {
         child.classList.add('selected');
-        child.children[0].classList.remove('display-none');
+        child.querySelector("ion-icon").classList.remove('display-none');
         updateSelections('add',itemName,itemPrice,"menu-1");
+        setTimeout(scrollTo, 150, menu2);
       }
     }
   }
@@ -159,18 +170,19 @@ function selectOne(selection, menu) {
       const selected = child.classList.contains('selected');
       if (selected === true  && child === selection) {
         child.classList.remove('selected');
-        child.children[0].classList.add('display-none');
+        child.querySelector("ion-icon").classList.add('display-none');
         updateSelections('sub',itemName,itemPrice,"menu-2");
       }
       else if (selected === true && child !== selection) {
         child.classList.remove('selected');
-        child.children[0].classList.add('display-none');
+        child.querySelector("ion-icon").classList.add('display-none');
         updateSelections('sub',itemName,itemPrice,"menu-2");
       }
       else if (selected === false && child === selection) {
         child.classList.add('selected');
-        child.children[0].classList.remove('display-none');
+        child.querySelector("ion-icon").classList.remove('display-none');
         updateSelections('add',itemName,itemPrice,"menu-2");
+        setTimeout(scrollTo, 150, menu3);
       }
     }
   }
@@ -181,17 +193,17 @@ function selectOne(selection, menu) {
       const selected = child.classList.contains('selected');
       if (selected === true  && child === selection) {
         child.classList.remove('selected');
-        child.children[0].classList.add('display-none');
+        child.querySelector("ion-icon").classList.add('display-none');
         updateSelections('sub',itemName,itemPrice,"menu-3");
       }
       else if (selected === true && child !== selection) {
         child.classList.remove('selected');
-        child.children[0].classList.add('display-none');
+        child.querySelector("ion-icon").classList.add('display-none');
         updateSelections('sub',itemName,itemPrice,"menu-3");
       }
       else if (selected === false && child === selection) {
         child.classList.add('selected');
-        child.children[0].classList.remove('display-none');
+        child.querySelector("ion-icon").classList.remove('display-none');
         updateSelections('add',itemName,itemPrice,"menu-3");
       }
     }

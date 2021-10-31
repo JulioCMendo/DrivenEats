@@ -25,6 +25,7 @@ body {
 
 .display-none {
   display: none !important;
+  visibility: hidden;
 }
 
 .pd-21 {
@@ -143,6 +144,7 @@ body {
   background: #FFFFFF;
   box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
   border-radius: 9px;
+  transition: 0.3s;
 
   scroll-snap-align: start;
   scroll-snap-stop: always;
@@ -263,6 +265,8 @@ body {
   font-size: 22px;
 
   font-family: 'Roboto', sans-serif;
+
+  animation: pop-in 0.5s;
 }
 
 .confirm-order h1 {
@@ -294,4 +298,13 @@ body {
   line-height: 25.78px;
   letter-spacing: 0.018em;
   text-align: center;
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
