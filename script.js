@@ -2,8 +2,32 @@ let selections = 0;
 
 function processOrder(action){
   if(action === "confirm"){
-
+    let wpp = "https://wa.me/5599999999999?text=";
+    const menuOneName = document.querySelector(".new-order").querySelector(".menu-1").querySelector(".item-name").innerHTML;
+    const menuTwoName = document.querySelector(".new-order").querySelector(".menu-2").querySelector(".item-name").innerHTML;
+    const menuThreeName = document.querySelector(".new-order").querySelector(".menu-3").querySelector(".item-name").innerHTML;
+    const total = document.getElementById("total").children[1].innerHTML;
+    let pedido = [];
+    let string = "";
+    string = "Olá, gostaria de fazer o pedido:\n- Prato: ";
+    string += menuOneName;
+    string += "\n- Bebida: ";
+    string += menuTwoName;
+    string += "\n- Sobremesa: ";
+    string += menuThreeName;
+    string += "\nTotal: ";
+    string += total;
+    const clientName = prompt("Qual seu nome?");
+    const clientAddress = prompt("E qual seu endereço?");
+    string += "\n\nNome: "
+    string += clientName;
+    string += "\nEndereço: ";
+    string += clientAddress;
+    wpp += encodeURIComponent(string);
+    console.log(string);
+    window.open(wpp);
   }
+
   else if(action === "cancel"){
     const confirmOrder = document.querySelector(".confirm-order");
     const container = document.querySelector(".container");
