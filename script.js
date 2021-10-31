@@ -2,12 +2,13 @@ let selections = 0;
 
 function processOrder(action){
   if(action === "confirm"){
+    // If order is confirmed, create Wpp string with order
+
     let wpp = "https://wa.me/5599999999999?text=";
     const menuOneName = document.querySelector(".new-order").querySelector(".menu-1").querySelector(".item-name").innerHTML;
     const menuTwoName = document.querySelector(".new-order").querySelector(".menu-2").querySelector(".item-name").innerHTML;
     const menuThreeName = document.querySelector(".new-order").querySelector(".menu-3").querySelector(".item-name").innerHTML;
     const total = document.getElementById("total").children[1].innerHTML;
-    let pedido = [];
     let string = "";
     string = "Olá, gostaria de fazer o pedido:\n- Prato: ";
     string += menuOneName;
@@ -29,6 +30,8 @@ function processOrder(action){
   }
 
   else if(action === "cancel"){
+    //If order is cancelled, hides order summary screen, enables menu
+
     const confirmOrder = document.querySelector(".confirm-order");
     const container = document.querySelector(".container");
     const body = document.body;
@@ -46,7 +49,9 @@ function processOrder(action){
   }
 }
 
-function makeOrder(){
+function openOrderSummary(){
+  //Unhides order summary
+
   const confirmOrder = document.querySelector(".confirm-order");
   const container = document.querySelector(".container");
   const body = document.body;
@@ -62,6 +67,8 @@ function makeOrder(){
 }
 
 function enableButton(action) {
+  //Enables button click, swaps html text
+
   const orderButton = document.getElementById("order-button");
   if (action === "enable") { 
     orderButton.innerHTML = "<p>Fechar pedido</p>";
@@ -85,10 +92,14 @@ function enableButton(action) {
 }
 
 function getTotal(){
+  //Calculates total
+
   const getOrder = document.querySelector(".new-order");
   const displayTotal = document.getElementById("total");
   const prices = getOrder.querySelectorAll(".item-price");
   let total = 0;
+
+  //Formats price string to a float
   for(let price of prices){
     total += parseFloat(price.innerHTML.replace(/\$|R/g, "").replace(/,/g,'.'));
   }
@@ -96,6 +107,8 @@ function getTotal(){
 }
 
 function scrollTo(element) {
+  // Simple window scroll, offset w/ flex gap
+
   window.scroll({
     behavior: 'smooth',
     left: 0,
@@ -104,27 +117,38 @@ function scrollTo(element) {
 }
 
 function updateSelections(value, itemName, itemPrice, menu){
+
   const newMenu = "." + menu;
 
   const newOrder = document.querySelector(".new-order");
+
+  //Clones relevant nodes with children
   const nameClone = itemName.cloneNode(true);
   const priceClone = itemPrice.cloneNode(true);
+
+  //Formats price string to remove "R$"
   priceClone.innerHTML = priceClone.innerHTML.replace(/\$|R/g, "");
 
+  //Makes a new div with name and price for the selected item
   let newDiv = document.createElement('div');
   newDiv.classList.add("flex-row", "between", menu);
   newDiv.appendChild(nameClone);
   newDiv.appendChild(priceClone);
 
+  //Appends if it is selected
   if (value === "add") { 
     selections++;
     newOrder.appendChild(newDiv);
   }
+
+  //Removes if it is deselected
   else if (value === "sub") {
     selections--;
     newOrder.querySelector(newMenu).remove();
   }
 
+
+  //After selecting an item, checks if button should be enabled or disabled
   if (selections === 3){
     enableButton("enable");
     getTotal();
@@ -135,6 +159,8 @@ function updateSelections(value, itemName, itemPrice, menu){
 }
 
 function selectOne(selection, menu) {
+  //Adds styling to selected items, calls function that updates order based on selected or deselected items
+
   const menu1 = document.getElementById("menu-1");
   const menu2 = document.getElementById("menu-2");
   const menu3 = document.getElementById("menu-3");
@@ -148,17 +174,22 @@ function selectOne(selection, menu) {
       if (selected === true  && child === selection) {
         child.classList.remove('selected');
         child.querySelector("ion-icon").classList.add('display-none');
+
         updateSelections('sub',itemName,itemPrice,"menu-1");
       }
       else if (selected === true && child !== selection) {
         child.classList.remove('selected');
         child.querySelector("ion-icon").classList.add('display-none');
+
         updateSelections('sub',itemName,itemPrice,"menu-1");
       }
       else if (selected === false && child === selection) {
         child.classList.add('selected');
         child.querySelector("ion-icon").classList.remove('display-none');
+
         updateSelections('add',itemName,itemPrice,"menu-1");
+
+        //Scrolls down to next menu
         setTimeout(scrollTo, 150, menu2);
       }
     }
@@ -171,17 +202,22 @@ function selectOne(selection, menu) {
       if (selected === true  && child === selection) {
         child.classList.remove('selected');
         child.querySelector("ion-icon").classList.add('display-none');
+
         updateSelections('sub',itemName,itemPrice,"menu-2");
       }
       else if (selected === true && child !== selection) {
         child.classList.remove('selected');
         child.querySelector("ion-icon").classList.add('display-none');
+
         updateSelections('sub',itemName,itemPrice,"menu-2");
       }
       else if (selected === false && child === selection) {
         child.classList.add('selected');
         child.querySelector("ion-icon").classList.remove('display-none');
+        
         updateSelections('add',itemName,itemPrice,"menu-2");
+        
+        //Scrolls down to next menu
         setTimeout(scrollTo, 150, menu3);
       }
     }
@@ -194,16 +230,19 @@ function selectOne(selection, menu) {
       if (selected === true  && child === selection) {
         child.classList.remove('selected');
         child.querySelector("ion-icon").classList.add('display-none');
+
         updateSelections('sub',itemName,itemPrice,"menu-3");
       }
       else if (selected === true && child !== selection) {
         child.classList.remove('selected');
         child.querySelector("ion-icon").classList.add('display-none');
+
         updateSelections('sub',itemName,itemPrice,"menu-3");
       }
       else if (selected === false && child === selection) {
         child.classList.add('selected');
         child.querySelector("ion-icon").classList.remove('display-none');
+        
         updateSelections('add',itemName,itemPrice,"menu-3");
       }
     }
